@@ -1,3 +1,8 @@
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
+
 namespace TestWork;
 
 public class Tests
@@ -29,14 +34,10 @@ public class Tests
     [Test]
     public void Test5()
     {
-        [Test]
-        public void CheckThatHeaderElementDisplayed()
-        {
             var epamUrl = "https://www.epam.com/";
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(epamUrl);
             Assert.That(driver.Url, Is.EqualTo(epamUrl), "The header element is not displayed on the page correctly");
-        }
     }
     [Test]
     public void Test6()
