@@ -7,6 +7,7 @@ public interface IBaseElement
     void Click();
     void SendKeys(string text);
     void Clear();
-    bool IsDislayed();
+    bool Exists();
+    bool IsDisplayed();
     bool IsEnabled();
 }

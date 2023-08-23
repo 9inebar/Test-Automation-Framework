@@ -28,6 +28,12 @@ public abstract class BaseTest
     [TearDown]
     public virtual void CleanTest()
     {
-        
+        if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+        {
+            Logger.Info("Test has failed");
+            BrowserFactory.Browser.SaveScreenShot(TestContext.CurrentContext.Test.MethodName, Path.Combine(TestContext.CurrentContext.TestDirectory, TestSettings.ScreenShotPath));
+        }
+        Logger.Info("Test has finished");
+        BrowserFactory.Browser.Quit();
     }
 }

@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.TestAutomation", "Epam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.TestAutomation.Tests", "Epam.TestAutomation.Tests\Epam.TestAutomation.Tests.csproj", "{6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Epam.TestAutomation.Web", "Epam.TestAutomation.Web\Epam.TestAutomation.Web.csproj", "{D40D034D-7270-4DDE-8E82-8BDCC0B27BBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D40D034D-7270-4DDE-8E82-8BDCC0B27BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40D034D-7270-4DDE-8E82-8BDCC0B27BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40D034D-7270-4DDE-8E82-8BDCC0B27BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40D034D-7270-4DDE-8E82-8BDCC0B27BBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

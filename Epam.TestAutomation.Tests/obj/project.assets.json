@@ -172,6 +172,20 @@
         "runtime": {
           "bin/placeholder/Epam.TestAutomation.dll": {}
         }
+      },
+      "Epam.TestAutomation.Web/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Epam.TestAutomation": "1.0.0",
+          "Selenium.WebDriver": "4.11.0"
+        },
+        "compile": {
+          "bin/placeholder/Epam.TestAutomation.Web.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Epam.TestAutomation.Web.dll": {}
+        }
       }
     }
   },
@@ -546,11 +560,17 @@
       "type": "project",
       "path": "../Epam.TestAutomation/Epam.TestAutomation.csproj",
       "msbuildProject": "../Epam.TestAutomation/Epam.TestAutomation.csproj"
+    },
+    "Epam.TestAutomation.Web/1.0.0": {
+      "type": "project",
+      "path": "../Epam.TestAutomation.Web/Epam.TestAutomation.Web.csproj",
+      "msbuildProject": "../Epam.TestAutomation.Web/Epam.TestAutomation.Web.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Epam.TestAutomation >= 1.0.0",
+      "Epam.TestAutomation.Web >= 1.0.0",
       "NUnit >= 3.13.3"
     ]
   },
@@ -579,6 +599,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "/Users/alehhramovich/RiderProjects/Epam.TestAutomation/Epam.TestAutomation.Web/Epam.TestAutomation.Web.csproj": {
+              "projectPath": "/Users/alehhramovich/RiderProjects/Epam.TestAutomation/Epam.TestAutomation.Web/Epam.TestAutomation.Web.csproj"
+            },
             "/Users/alehhramovich/RiderProjects/Epam.TestAutomation/Epam.TestAutomation/Epam.TestAutomation.csproj": {
               "projectPath": "/Users/alehhramovich/RiderProjects/Epam.TestAutomation/Epam.TestAutomation/Epam.TestAutomation.csproj"
             }
