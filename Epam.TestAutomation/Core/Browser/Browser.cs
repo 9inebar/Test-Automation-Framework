@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using Epam.TestAutomation.Core.Helper;
 using Epam.TestAutomation.Core.ScreenShot;
 using Epam.TestAutomation.Core.Utils;
@@ -10,7 +11,8 @@ namespace Epam.TestAutomation.Core.Browser;
 
 public class Browser
 {
-    private IWebDriver driver { get; set; }
+    private IWebDriver driver { get;}
+    //private Actions action { get; set; }
     IJavaScriptExecutor jse => (IJavaScriptExecutor)driver;
 
     public Browser(IWebDriver driver)
@@ -25,6 +27,16 @@ public class Browser
         jse.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)", element);
     }
 
+    public void ClickElement(By locator)
+    {
+        Logger.Info("Click on element");
+        driver.FindElement(locator).Click();
+    }
+    public void EnterText(By locator, string text)
+    {
+        Logger.Info("Enter text");
+        driver.FindElement(locator).SendKeys(text);
+    }
     public void Back()
     {
         Logger.Info("Navigate Back");
@@ -124,11 +136,4 @@ public class Browser
     {
         return driver.FindElements(by);
     }
-
-    public void SetSessionToken(string token)
-    {
-        var tokenValue = "{\"type\":\"bearer\",\"value\":\"" + token + " \"}";
-        ExecuteScript("javascript:localStorage.token=arguments[0];", tokenValue);
-    }
-
 }
