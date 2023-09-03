@@ -13,13 +13,16 @@ public abstract class BaseElement : IBaseElement
     {
         this.element = element;
     }
+    
     protected BaseElement(By locator)
     {
         element = BrowserFactory.Browser.FindElement(locator);
     }
 
     public IWebElement OriginalWebElement => element;
+    
     public string GetText() => OriginalWebElement.Text.Trim();
+    
     public string GetAttribute(string attributeName) => OriginalWebElement.GetAttribute(attributeName);
     
     public virtual void Click()
@@ -47,10 +50,16 @@ public abstract class BaseElement : IBaseElement
     }
 
     public bool IsDisplayed() => OriginalWebElement.Displayed;
+    
     public bool IsEnabled() => OriginalWebElement.Enabled;
+    
     public int GetWidth() => OriginalWebElement.Size.Width;
+    
     public int GetHeight() => OriginalWebElement.Size.Height;
+    
     public Point GetLocation() => OriginalWebElement.Location;
+    
     public IWebElement FindElement(By by) => OriginalWebElement.FindElement(by);
+    
     public ReadOnlyCollection<IWebElement> FindElements(By by) => OriginalWebElement.FindElements(by);
 }

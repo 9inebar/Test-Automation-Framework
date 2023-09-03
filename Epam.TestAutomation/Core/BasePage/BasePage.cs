@@ -13,6 +13,8 @@ public abstract class BasePage
     public void AcceptAllCookies()
     {
         Waiters.WaitForCondition(()=>AcceptAllCookiesButton.IsDisplayed());
+        Waiters.WaitForCondition(()=>AcceptAllCookiesButton.IsEnabled());
+        Thread.Sleep(3000);
         AcceptAllCookiesButton.Click();
     }
     

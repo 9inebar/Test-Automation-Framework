@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using Epam.TestAutomation.Core.Helper;
 using Epam.TestAutomation.Core.ScreenShot;
 using Epam.TestAutomation.Core.Utils;
@@ -12,7 +11,8 @@ namespace Epam.TestAutomation.Core.Browser;
 public class Browser
 {
     private IWebDriver driver { get;}
-    //private Actions action { get; set; }
+    public IWebDriver Driver => driver;
+  
     IJavaScriptExecutor jse => (IJavaScriptExecutor)driver;
 
     public Browser(IWebDriver driver)
@@ -126,6 +126,7 @@ public class Browser
             Logger.Info($"Error: Timeout Exception thrown while running JS Script:{e.Message}-{e.StackTrace}");
         }
         return null;
+        
     }
     public IWebElement FindElement(By locator)
     {

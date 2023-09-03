@@ -10,7 +10,7 @@ namespace Epam.TestAutomation.Tests;
 public abstract class BaseTest
 {
     public TestContext TestContext { get; set; }
-    public Actions action { get;}
+    public Actions action { get; set; }
 
     [OneTimeSetUp]
     public void OneTimeSetUp()
@@ -25,6 +25,7 @@ public abstract class BaseTest
         BrowserFactory.Browser.Maximize();
         BrowserFactory.Browser.GoToUrl(TestSettings.ApplicationUrl);
         Waiters.WaitForPageLoad();
+        action = new Actions(BrowserFactory.Browser.Driver);
     }
 
     [TearDown]
