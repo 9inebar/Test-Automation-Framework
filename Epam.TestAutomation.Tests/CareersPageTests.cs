@@ -1,4 +1,5 @@
 using Epam.TestAutomation.Core.Browser;
+using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -31,9 +32,8 @@ public class CareersPageTests : BaseTest
     public void HoverOverCareerMenuTest()
     {
         BrowserFactory.Browser.GoToUrl(careersPage.jobListingsUrl);
-        Thread.Sleep(1000);
+        Waiters.WaitForPageLoad();
         action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
-        //action.MoveToElement(BrowserFactory.Browser.FindElement(By.XPath("//a[@ href='/careers']//parent::span"))).Build().Perform();
         Thread.Sleep(3000);
         action.MoveToElement(BrowserFactory.Browser.FindElement(By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]"))).Click().Build().Perform();
         Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");

@@ -1,9 +1,20 @@
 Feature: CalculatorOperations
 	Simple calculator for adding two numbers
 
-@mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
+@msmoke
+@learning
+Scenario: Calculator Sum
+	Given the first number is 2
+	And the second number is 3
 	When the two numbers are added
-	Then the result should be 120
+	And Sum operation is selected
+	Then the result should be 5
+	
+	@msmoke
+	@learning
+	Scenario: Calculator Diff
+	Given the first number is 6
+	And the second number is 3
+	When the two numbers are added
+	And Sum operation is selected
+	Then the result should be 2

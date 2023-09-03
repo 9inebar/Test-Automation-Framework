@@ -13,6 +13,7 @@ public class SearchPageTests : BaseTest
     public void SetUp()
     {
         searchPage = new SearchPage();
+        Waiters.WaitForPageLoad();
         searchPage.AcceptAllCookies();
     }
     [Test]
@@ -41,7 +42,7 @@ public class SearchPageTests : BaseTest
         string firstArticleTitle = BrowserFactory.Browser.FindElement(By.XPath("//a[@class='search-results__title-link'][1]")).Text;
         By searchResults = By.XPath("//a[@class='search-results__title-link']");
         BrowserFactory.Browser.ClickElement(searchResults);
-        string openedArticleTitle = BrowserFactory.Browser.FindElement(By.XPath("//span[@class='museo-sans-light']")).Text;
+        string openedArticleTitle = BrowserFactory.Browser.FindElement(By.XPath("(//span[@class='museo-sans-light'])[last()]")).Text;
         Assert.That(firstArticleTitle, Is.EqualTo(openedArticleTitle), "Titles are different");
     }
 
@@ -59,16 +60,15 @@ public class SearchPageTests : BaseTest
     public void CheckThatThereAre20Elements()
     {
         int numberOfArticles = 20;
-
-        BrowserFactory.Browser.FindElement(By.XPath("//div[@class='header-search-ui header-search-ui-23 header__control']")).Click();
-        BrowserFactory.Browser.FindElement(By.XPath("//li[@class='frequent-searches__item'][1]")).Click();
-        BrowserFactory.Browser.FindElement(By.XPath("//span[@class='bth-text-layer']")).Click();
-        IJavaScriptExecutor jse = (IJavaScriptExecutor)BrowserFactory.Browser;
+        
+        BrowserFactory.Browser.ClickElement(searchPage.searchButton);
+        Thread.Sleep(1000);
+        BrowserFactory.Browser.ClickElement(searchPage.frequentSearchesFirstItem);
+        BrowserFactory.Browser.ClickElement(searchPage.findButton);
+        IJavaScriptExecutor jse = (IJavaScriptExecutor)BrowserFactory.Browser.Driver;
         jse.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
-        IWebElement searchResults = BrowserFactory.Browser.FindElement(By.XPath("//article[@class='search-results__item'][11]"));
-        Waiters.WaitForCondition(() => searchResults.Displayed);
-        Waiters.WaitForPageLoad();
-        int listOfArticlesAfterViewMore = BrowserFactory.Browser.FindElements(By.XPath("//article")).Count;
-        Assert.That(listOfArticlesAfterViewMore,Is.EqualTo(numberOfArticles));
+        Waiters.WaitForCondition(() =>BrowserFactory.Browser.FindElements(searchPage.articles).Count.Equals(numberOfArticles));
+        int listOfArticlesAfterViewMore = BrowserFactory.Browser.FindElements(searchPage.articles).Count;
+        Assert.That(listOfArticlesAfterViewMore,Is.EqualTo(numberOfArticles), "the number of articles should be 20");
     }
 }

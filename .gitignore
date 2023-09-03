@@ -199,7 +199,13 @@ project.lock.json
 *.vc.db
 
 # Rider
+.info
+.git/
 .idea/
+obj/
+bin/
+.DS_Store/
+.Epam.TestAutomation.sln.DotSettings.user
 
 # Visual Studio Code
 .vscode/

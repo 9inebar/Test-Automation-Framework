@@ -26,4 +26,7 @@ public class SearchPage : BasePage
     //second test variables
     public static string keyWord2 = "Business Analysis";
     public string searchUrl2 = "https://www.epam.com/search?q=Business+Analysis";
+    //fourth test variables
+    public By frequentSearchesFirstItem = By.XPath("//li[@class='frequent-searches__item'][1]");
+    public By articles = (By.XPath("//article"));
 }
