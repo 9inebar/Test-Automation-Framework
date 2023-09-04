@@ -5,7 +5,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Tests;
-[TestFixture]
+[TestFixture] [Parallelizable(ParallelScope.All)]
 public class ListOfLanguagesTests : BaseTest
 {
     private ListOfLanguagesPage listOfLanguagesPage;

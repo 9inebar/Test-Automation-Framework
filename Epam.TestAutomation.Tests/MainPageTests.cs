@@ -3,7 +3,7 @@ using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
 
 namespace Epam.TestAutomation.Tests;
-[TestFixture]
+[TestFixture] [Parallelizable(ParallelScope.All)]
 public class MainPageTests : BaseTest
 {
     private MainPage mainPage;
