@@ -38,4 +38,10 @@ public class CareersPageTests : BaseTest
         action.MoveToElement(BrowserFactory.Browser.FindElement(By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]"))).Click().Build().Perform();
         Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");
     }
+
+    [Test]
+    public void DDTKeyWordPhrases()
+    {
+        BrowserFactory.Browser.ClickElement(careersPage.careersButton);
+    }
 }
