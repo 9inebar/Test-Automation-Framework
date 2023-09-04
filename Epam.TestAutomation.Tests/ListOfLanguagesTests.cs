@@ -1,12 +1,11 @@
 using Epam.TestAutomation.Core.Browser;
-using Epam.TestAutomation.Core.Elements;
 using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Tests;
-
+[TestFixture]
 public class ListOfLanguagesTests : BaseTest
 {
     private ListOfLanguagesPage listOfLanguagesPage;

@@ -5,7 +5,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Tests;
-
+[TestFixture]
 public class SearchPageTests : BaseTest
 {
     private SearchPage searchPage;

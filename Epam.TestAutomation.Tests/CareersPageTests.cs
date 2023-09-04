@@ -5,7 +5,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Tests;
-
+[TestFixture]
 public class CareersPageTests : BaseTest
 {
     private CareersPage careersPage;
