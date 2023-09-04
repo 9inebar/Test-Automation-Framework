@@ -6,7 +6,7 @@ using OpenQA.Selenium.Interactions;
 using Logger = Epam.TestAutomation.Core.Utils.Logger;
 
 namespace Epam.TestAutomation.Tests;
-
+[TestFixture]
 public abstract class BaseTest
 {
     public TestContext TestContext { get; set; }
