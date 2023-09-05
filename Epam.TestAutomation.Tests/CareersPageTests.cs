@@ -31,17 +31,24 @@ public class CareersPageTests : BaseTest
     [Test]
     public void HoverOverCareerMenuTest()
     {
-        BrowserFactory.Browser.GoToUrl(careersPage.jobListingsUrl);
-        Waiters.WaitForPageLoad();
         action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
-        Thread.Sleep(3000);
-        action.MoveToElement(BrowserFactory.Browser.FindElement(By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]"))).Click().Build().Perform();
+        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.jobListingsButton)).Click().Build().Perform();
         Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");
     }
 
     [Test]
     public void DDTKeyWordPhrases()
     {
-        BrowserFactory.Browser.ClickElement(careersPage.careersButton);
+        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
+        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.jobListingsButton)).Click().Build().Perform();
+        BrowserFactory.Browser.ClickElement(careersPage.keyWord);
+        BrowserFactory.Browser.EnterText(careersPage.keyWord, careersPage.DDTKeyWord);
+        BrowserFactory.Browser.ClickElement(careersPage.joinOurTeamFindButton);
+        IEnumerable<IWebElement> listOfSearchResults =
+            BrowserFactory.Browser.FindElements(By.XPath("//li[@class='search-result__item']")).ToList();
+        IEnumerable<string> resultsToLower = listOfSearchResults.Select(result => result.Text.ToLower());
+        var expectedResult = careersPage.DDTKeyWord.ToLower();
+        var Output = string.Join(",", resultsToLower);
+        Assert.That(resultsToLower.All(result => result.Contains(expectedResult)),Is.True, $"The search results are NOT related to your keyword phrase : {Output}");
     }
 }

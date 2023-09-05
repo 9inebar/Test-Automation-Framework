@@ -1,5 +1,6 @@
 using Epam.TestAutomation.Core.BasePage;
 using Epam.TestAutomation.Core.Browser;
+using Epam.TestAutomation.Core.Elements;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Web.PageObjects.Pages;
@@ -15,4 +16,10 @@ public class CareersPage : BasePage
     public bool isAPACDisplayed = BrowserFactory.Browser.FindElement(By.XPath("//a[@data-item='2']")).Displayed;
     
     public string jobListingsUrl = "https://www.epam.com/careers/job-listings";
+    public By jobListingsButton = By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]");
+    
+    //DDT test data
+    public By keyWord = By.XPath("//input[@id='new_form_job_search-keyword']");
+    public string DDTKeyWord = "QA Automation Team Lead";
+    public By joinOurTeamFindButton = By.XPath("//button[contains(text(),'Find')]");
 }

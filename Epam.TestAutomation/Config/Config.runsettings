@@ -4,10 +4,10 @@
         <Parameter name ="Browser" value="Chrome"/>
         <Parameter name ="WebDriverTimeOut" value="60"/>
         <Parameter name ="WaitElementtimeOut" value="80"/>
-        <Parameter name ="ScreenShotPath" value="\Screenshots"/>
-        <Parameter name ="LogsPath" value="Logs\Logs.txt"/>
+        <Parameter name ="ScreenShotPath" value="/Screenshots"/>
+        <Parameter name ="LogsPath" value="/Logs/Logs.txt"/>
         <Parameter name ="ApplicationUrl" value="https://www.epam.com/"/>
-        <Parameter name ="TestDataFolder" value="\TestFiles"/>
+        <Parameter name ="TestDataFolder" value="/TestFiles"/>
     </TestRunParameters>
     
     <NUnit>
