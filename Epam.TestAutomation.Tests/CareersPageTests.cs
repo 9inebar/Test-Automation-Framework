@@ -44,10 +44,12 @@ public class CareersPageTests : BaseTest
         BrowserFactory.Browser.ClickElement(careersPage.keyWord);
         BrowserFactory.Browser.EnterText(careersPage.keyWord, careersPage.DDTKeyWord);
         BrowserFactory.Browser.ClickElement(careersPage.joinOurTeamFindButton);
-        IEnumerable<IWebElement> listOfSearchResults =
-            BrowserFactory.Browser.FindElements(By.XPath("//li[@class='search-result__item']")).ToList();
-        IEnumerable<string> resultsToLower = listOfSearchResults.Select(result => result.Text.ToLower());
+        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.jobListingsSearchResults)).Build().Perform();
+        Thread.Sleep(3000);
+        List<IWebElement> listOfSearchResults =
+            BrowserFactory.Browser.FindElements(careersPage.jobListingsSearchResultCell).ToList();
         var expectedResult = careersPage.DDTKeyWord.ToLower();
+        IEnumerable<string> resultsToLower = listOfSearchResults.Select(result => result.Text.ToLower());
         var Output = string.Join(",", resultsToLower);
         Assert.That(resultsToLower.All(result => result.Contains(expectedResult)),Is.True, $"The search results are NOT related to your keyword phrase : {Output}");
     }
