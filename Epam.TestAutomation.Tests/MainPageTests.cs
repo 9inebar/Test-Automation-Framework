@@ -1,10 +1,9 @@
 using Epam.TestAutomation.Core.Browser;
 using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Tests;
-
+[TestFixture] [Parallelizable(ParallelScope.All)]
 public class MainPageTests : BaseTest
 {
     private MainPage mainPage;
