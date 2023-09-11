@@ -1,6 +1,5 @@
 using Epam.TestAutomation.Core.BasePage;
 using Epam.TestAutomation.Core.Browser;
-using Epam.TestAutomation.Core.Elements;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Web.PageObjects.Pages;
@@ -20,6 +19,8 @@ public class CareersPage : BasePage
     
     //DDT test data
     public By keyWord = By.XPath("//input[@id='new_form_job_search-keyword']");
-    public string DDTKeyWord = "QA Automation Team Lead";
     public By joinOurTeamFindButton = By.XPath("//button[contains(text(),'Find')]");
+    public By jobListingsSearchResults = By.XPath("//div[@class='search-result__sorting-menu']");
+    public By jobListingsSearchResultCell = By.XPath("//li[@class='search-result__item']");
+    public By jobListingsNoSearchResult = By.XPath("//div[@role='alert']");
 }
