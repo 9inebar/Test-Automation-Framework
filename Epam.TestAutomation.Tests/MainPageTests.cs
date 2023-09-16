@@ -37,16 +37,16 @@ public class MainPageTests : BaseTest
     [Test]
     public void CreateAndFindSimpleLocators()
     {
-        BrowserFactory.Browser.FindElement(mainPage.searchButton);
-        BrowserFactory.Browser.FindElement(mainPage.emptyBar);
-        BrowserFactory.Browser.FindElement(mainPage.mobileLocationSelector);
-        BrowserFactory.Browser.FindElement(mainPage.vendorSearch);
-        BrowserFactory.Browser.FindElement(mainPage.menuDropDown);
+        BrowserFactory.Browser.FindElement(mainPage.SearchButton);
+        BrowserFactory.Browser.FindElement(mainPage.EmptyBar);
+        BrowserFactory.Browser.FindElement(mainPage.MobileLocationSelector);
+        BrowserFactory.Browser.FindElement(mainPage.VendorSearch);
+        BrowserFactory.Browser.FindElement(mainPage.MenuDropDown);
     }
     
     [Test]
     public void FindContactUsButton()
     {
-        BrowserFactory.Browser.FindElement(mainPage.contactUsButton);
+        BrowserFactory.Browser.FindElement(mainPage.ContactUsButton);
     }
 }

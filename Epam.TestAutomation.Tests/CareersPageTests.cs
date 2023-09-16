@@ -2,7 +2,6 @@ using Epam.TestAutomation.Core.Browser;
 using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Tests;
 [TestFixture] [Parallelizable(ParallelScope.All)]
@@ -14,14 +13,13 @@ public class CareersPageTests : BaseTest
     public void SetUp()
     {
         careersPage = new CareersPage();
-        careersPage.AcceptAllCookies();
     }
 
     [Test]
     public void CheckThatListOfCountriesContainsAmerEMEAandAPAC()
     {
-        BrowserFactory.Browser.ClickElement(careersPage.careersButton);
-        BrowserFactory.Browser.ClickElement(careersPage.findYourDreamJobButton);
+        careersPage.careersButton.Click();
+        careersPage.findYourDreamJobButton.Click();
         
         Assert.True(careersPage.isAmericasDisplayed, "Americas element not displayed");
         Assert.True(careersPage.isEMEADisplayed, "EMEA element not displayed");
@@ -31,11 +29,9 @@ public class CareersPageTests : BaseTest
     [Test]
     public void HoverOverCareerMenuTest()
     {
-        BrowserFactory.Browser.GoToUrl(careersPage.jobListingsUrl);
-        Waiters.WaitForPageLoad();
-        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
-        Thread.Sleep(3000);
-        action.MoveToElement(BrowserFactory.Browser.FindElement(By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]"))).Click().Build().Perform();
+        BrowserFactory.Browser.Action.MoveToElement(careersPage.careersButton).Build().Perform();
+        Waiters.WaitForCondition(()=>careersPage.joinOurTeamButton.Displayed);
+        BrowserFactory.Browser.Action.MoveToElement(careersPage.joinOurTeamButton).Click().Build().Perform();
         Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");
     }
 }
