@@ -161,7 +161,7 @@ public class CareersPageTests : BaseTest
         var Output = string.Join(",", resultsToLower);
         Assert.That(resultsToLower.All(result => result.Contains(expectedResult)),Is.True, $"The search results are NOT related to your keyword phrase : {Output}");
     }
-    static List<KeyWordAndLocationModel> GetSearchTestData5()
+    private static List<KeyWordAndLocationModel> GetSearchTestData5()
     {
         var json = File.ReadAllText("/Users/alehhramovich/RiderProjects/Epam.TestAutomation/Epam.TestAutomation.Tests.DDT/TestData/DDTSelectedSkillsAndKeyWords.json");
         return JsonParser.DeserializeJsonToObjects<KeyWordAndLocationModel>(json);
