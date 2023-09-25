@@ -7,31 +7,31 @@ namespace Epam.TestAutomation.Tests;
 [TestFixture] [Parallelizable(ParallelScope.All)]
 public class CareersPageTests : BaseTest
 {
-    private CareersPage careersPage;
+    private CareersPage _careersPage;
 
     [SetUp]
     public void SetUp()
     {
-        careersPage = new CareersPage();
+        _careersPage = new CareersPage();
     }
 
     [Test]
-    public void CheckThatListOfCountriesContainsAmerEMEAandAPAC()
+    public void CheckThatListOfCountriesContainsAmerEmeAandApac()
     {
-        careersPage.careersButton.Click();
-        careersPage.findYourDreamJobButton.Click();
+        MainPage.CareersButton.Click();
+        _careersPage.FindYourDreamJobButton.Click();
         
-        Assert.True(careersPage.isAmericasDisplayed, "Americas element not displayed");
-        Assert.True(careersPage.isEMEADisplayed, "EMEA element not displayed");
-        Assert.True(careersPage.isAPACDisplayed, "APAC not displayed");
+        Assert.True(_careersPage.IsAmericasDisplayed, "Americas element not displayed");
+        Assert.True(_careersPage.IsEmeaDisplayed, "EMEA element not displayed");
+        Assert.True(_careersPage.IsApacDisplayed, "APAC not displayed");
     }
     
     [Test]
     public void HoverOverCareerMenuTest()
     {
-        BrowserFactory.Browser.Action.MoveToElement(careersPage.careersButton).Build().Perform();
-        Waiters.WaitForCondition(()=>careersPage.joinOurTeamButton.Displayed);
-        BrowserFactory.Browser.Action.MoveToElement(careersPage.joinOurTeamButton).Click().Build().Perform();
-        Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");
+        BrowserFactory.Browser.Action.MoveToElement(MainPage.CareersButton).Build().Perform();
+        Waiters.WaitForCondition(()=>_careersPage.JoinOurTeamButton.Displayed);
+        BrowserFactory.Browser.Action.MoveToElement(_careersPage.JoinOurTeamButton).Click().Build().Perform();
+        Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(CareersPage.JobListingsUrl), "the opened page has wrong url");
     }
 }

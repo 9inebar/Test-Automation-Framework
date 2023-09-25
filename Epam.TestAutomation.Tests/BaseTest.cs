@@ -10,7 +10,7 @@ namespace Epam.TestAutomation.Tests;
 public abstract class BaseTest
 {
     public TestContext TestContext { get; set; }
-    private MainPage mainPage = new();
+    protected MainPage MainPage = new();
 
     [OneTimeSetUp]
     public void OneTimeSetUp()
@@ -25,7 +25,7 @@ public abstract class BaseTest
         BrowserFactory.Browser.Maximize();
         BrowserFactory.Browser.GoToUrl(TestSettings.ApplicationUrl);
         Waiters.WaitForPageLoad();
-        mainPage.AcceptAllCookies();
+        MainPage.AcceptAllCookies();
     }
 
     [TearDown]

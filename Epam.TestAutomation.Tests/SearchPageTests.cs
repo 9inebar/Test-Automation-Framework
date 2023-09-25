@@ -9,36 +9,40 @@ namespace Epam.TestAutomation.Tests;
 public class SearchPageTests : BaseTest
 {
     private SearchPage searchPage;
+    
     [SetUp]
     public void SetUp()
     {
         searchPage = new SearchPage();
     }
+    
     [Test]
     public void CheckThatUrlToSearchContainsMyText()
     {
-        BrowserFactory.Browser.ClickElement(searchPage.searchButton);
-        Waiters.WaitForCondition(()=> searchPage.searchForm.Displayed);
-        Waiters.WaitForCondition(()=> searchPage.searchForm.Enabled);
-        searchPage.searchForm.Click();
-        searchPage.searchForm.SendKeys(SearchPage.keyWord);
-        searchPage.findButton.Click();
+        BrowserFactory.Browser.ClickElement(MainPage.SearchButton);
+        Waiters.WaitForCondition(()=> MainPage.SearchForm.Displayed);
+        Waiters.WaitForCondition(()=> MainPage.SearchForm.Enabled);
+        MainPage.SearchForm.Click();
+        MainPage.SearchForm.SendKeys(searchPage.KeyWord);
+        MainPage.FindButton.Click();
 
-        Assert.That(BrowserFactory.Browser.Url,Is.EqualTo(searchPage.searchUrl), "The url is wrong");
-        
-        Assert.That(SearchPage.articlesToLower.All(article => article.Contains(searchPage.expectedResult)),Is.True, $"The first 5 articles don't contain entered text : {searchPage.Output}");
+        Assert.That(BrowserFactory.Browser.Url,Is.EqualTo(searchPage.SearchUrl), "The url is wrong");
+        var articlesToLower = searchPage.ListOfArticles.Select(article => article.Text.ToLower());
+        var output = string.Join(",", articlesToLower);
+        var expectedResult = searchPage.KeyWord.ToLower();
+        Assert.That(articlesToLower.All(article => article.Contains(expectedResult)),Is.True, $"The first 5 articles don't contain entered text : {output}");
     }
     [Test]
     public void CheckThatTitleOfTheOpenedPageEqualsSearchTitle()
     {
-        BrowserFactory.Browser.ClickElement(searchPage.searchButton);
-        Waiters.WaitForCondition(()=> searchPage.searchForm.Displayed);
-        Waiters.WaitForCondition(()=> searchPage.searchForm.Enabled);
-        searchPage.searchForm.Click();
-        searchPage.searchForm.SendKeys(SearchPage.keyWord2);
-        searchPage.findButton.Click();
+        BrowserFactory.Browser.ClickElement(MainPage.SearchButton);
+        Waiters.WaitForCondition(()=> MainPage.SearchForm.Displayed);
+        Waiters.WaitForCondition(()=> MainPage.SearchForm.Enabled);
+        MainPage.SearchForm.Click();
+        MainPage.SearchForm.SendKeys(SearchPage.KeyWord2);
+        MainPage.FindButton.Click();
 
-        Assert.That(BrowserFactory.Browser.Url,Is.EqualTo(searchPage.searchUrl2), "The url is wrong");
+        Assert.That(BrowserFactory.Browser.Url,Is.EqualTo(searchPage.SearchUrl2), "The url is wrong");
         string firstArticleTitle = BrowserFactory.Browser.FindElement(By.XPath("//a[@class='search-results__title-link'][1]")).Text;
         By searchResults = By.XPath("//a[@class='search-results__title-link']");
         BrowserFactory.Browser.ClickElement(searchResults);
@@ -60,15 +64,15 @@ public class SearchPageTests : BaseTest
     {
         int numberOfArticles = 20;
         
-        BrowserFactory.Browser.ClickElement(searchPage.searchButton);
-        Waiters.WaitForCondition(() => searchPage.frequentSearchesFirstItem.Displayed);
-        Waiters.WaitForCondition(() => searchPage.frequentSearchesFirstItem.Enabled);
-        searchPage.frequentSearchesFirstItem.Click();
-        searchPage.findButton.Click();
+        BrowserFactory.Browser.ClickElement(MainPage.SearchButton);
+        Waiters.WaitForCondition(() => MainPage.FrequentSearchesFirstItem.Displayed);
+        Waiters.WaitForCondition(() => MainPage.FrequentSearchesFirstItem.Enabled);
+        MainPage.FrequentSearchesFirstItem.Click();
+        MainPage.FindButton.Click();
         IJavaScriptExecutor jse = (IJavaScriptExecutor)BrowserFactory.Browser.Driver;
         jse.ExecuteScript("window.scrollTo(0, document.body.scrollHeight)");
-        Waiters.WaitForCondition(() =>BrowserFactory.Browser.FindElements(searchPage.articles).Count.Equals(numberOfArticles));
-        int listOfArticlesAfterViewMore = BrowserFactory.Browser.FindElements(searchPage.articles).Count;
+        Waiters.WaitForCondition(() =>BrowserFactory.Browser.FindElements(searchPage.Articles).Count.Equals(numberOfArticles));
+        int listOfArticlesAfterViewMore = BrowserFactory.Browser.FindElements(searchPage.Articles).Count;
         Assert.That(listOfArticlesAfterViewMore,Is.EqualTo(numberOfArticles), "the number of articles should be 20");
     }
 }

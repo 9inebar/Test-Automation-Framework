@@ -3,17 +3,16 @@ using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
 
 namespace Epam.TestAutomation.Tests;
+
 [TestFixture] [Parallelizable(ParallelScope.All)]
 public class MainPageTests : BaseTest
 {
-    private MainPage mainPage;
     private HowWeDoItPage howUrl;
     private ClientWorkPage clientUrl;
 
     [SetUp]
     public void SetUp()
     {
-        mainPage = new MainPage();
         howUrl = new HowWeDoItPage();
         clientUrl = new ClientWorkPage();
     }
@@ -21,7 +20,7 @@ public class MainPageTests : BaseTest
     [Test]
     public void MainPageIsOpenedTest()
     {
-        Assert.That(BrowserFactory.Browser.GetUrl(), Is.EqualTo(mainPage.Url), "Main page is not displayed correctly");
+        Assert.That(BrowserFactory.Browser.GetUrl(), Is.EqualTo(MainPage.Url), "Main page is not displayed correctly");
     }
     
     [Test]
@@ -37,16 +36,16 @@ public class MainPageTests : BaseTest
     [Test]
     public void CreateAndFindSimpleLocators()
     {
-        BrowserFactory.Browser.FindElement(mainPage.SearchButton);
-        BrowserFactory.Browser.FindElement(mainPage.EmptyBar);
-        BrowserFactory.Browser.FindElement(mainPage.MobileLocationSelector);
-        BrowserFactory.Browser.FindElement(mainPage.VendorSearch);
-        BrowserFactory.Browser.FindElement(mainPage.MenuDropDown);
+        BrowserFactory.Browser.FindElement(MainPage.SearchButton);
+        BrowserFactory.Browser.FindElement(MainPage.EmptyBar);
+        BrowserFactory.Browser.FindElement(MainPage.MobileLocationSelector);
+        BrowserFactory.Browser.FindElement(MainPage.VendorSearch);
+        BrowserFactory.Browser.FindElement(MainPage.MenuDropDown);
     }
     
     [Test]
     public void FindContactUsButton()
     {
-        BrowserFactory.Browser.FindElement(mainPage.ContactUsButton);
+        BrowserFactory.Browser.FindElement(MainPage.ContactUsButton);
     }
 }
