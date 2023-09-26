@@ -121,7 +121,7 @@ public class TechTests
     [Test]
     public void CheckThatObjectCanBePut()
     {
-        var price = 2000;
+        var color = "black";
 
         var objectCreateRequest = new TechItemRequestModel
         {
@@ -145,7 +145,7 @@ public class TechTests
                 Price = 2000,
                 CapacityGB = 1024,
                 Harddisksize = "1 TB",
-                Color = "silver"
+                Color = "black"
             }
         };
 
@@ -159,7 +159,7 @@ public class TechTests
 
         var deletedObject = new TechController(new CustomRestClient()).GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
 
-        Assert.That(putObject.Data.Price, Is.EqualTo(price), "the object is not deleted");
+        Assert.That(putObject.Data.Color, Is.EqualTo(color), "the object is not updated");
         Assert.That(deletedObject.id, Is.Null, "the object is not deleted");
     }
 }
