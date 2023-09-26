@@ -1,3 +1,4 @@
+using System;
 using Epam.TestAutomation.API.Models.SharedModels;
 using Newtonsoft.Json;
 

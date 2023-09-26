@@ -1,4 +1,6 @@
-﻿namespace Epam.TestAutomation.API;
+﻿using System;
+
+namespace Epam.TestAutomation.API;
 
 public class AppConfiguration
 {

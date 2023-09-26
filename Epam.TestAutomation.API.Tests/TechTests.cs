@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Net;
 using Epam.TestAutomation.API.Controllers;
 using Epam.TestAutomation.API.Models.RequestModels;
@@ -22,8 +23,7 @@ public class TechTests
     public void CheckAllObjectsResponseReturnsObject()
     {
         var response = new TechController(new CustomRestClient()).GetObjects<List<TechItemSingleResponseModel>>();
-        CollectionAssert.IsNotEmpty(response.Objects,
-            "Any object should be returned when sending GET request to /objects");
+        CollectionAssert.IsNotEmpty(response.Objects, "Any object should be returned when sending GET request to /objects");
     }
 
     [Test]
