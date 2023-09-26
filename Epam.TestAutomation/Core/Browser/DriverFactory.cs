@@ -1,6 +1,5 @@
 using Epam.TestAutomation.Core.Enums;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace Epam.TestAutomation.Core.Browser;
 

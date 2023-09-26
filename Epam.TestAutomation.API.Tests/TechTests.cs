@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Net;
 using Epam.TestAutomation.API.Controllers;
 using Epam.TestAutomation.API.Models.RequestModels;
@@ -27,12 +26,12 @@ public class TechTests
     }
 
     [Test]
-    public void CreateTechItemWithCapacityGBTest()
+    public void CheckThatObjectWithCapacityCanBeCreatedAndDeleted()
     {
-        var capacity = 1024;
+        var capacity = 2048;
 
 
-        var techItem = new TechItemRequestModel()
+        var objectCreateRequest = new TechItemRequestModel
         {
             name = "Apple MacBook Pro 16",
             data = new TechData
@@ -42,24 +41,24 @@ public class TechTests
             }
         };
 
-        var createdItem = new TechController(new CustomRestClient())
-            .AddTechItem<TechItemCreatedAtResponseModel>(techItem).Tech;
+        var createdObject = new TechController(new CustomRestClient())
+            .AddObject<TechItemCreatedAtResponseModel>(objectCreateRequest).Tech;
 
-        var receivedItem = new TechController(new CustomRestClient())
-            .GetSingleTechItem<TechItemSingleResponseModel>(createdItem.id).Tech;
+        var returnedObject = new TechController(new CustomRestClient())
+            .GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
 
-        var deleteAnItem = new TechController(new CustomRestClient())
-            .DeleteCreatedItem<TechItemDeletedResponseModel>(createdItem.id).Tech;
+        var deletedObject = new TechController(new CustomRestClient())
+            .DeleteObject<TechItemDeletedResponseModel>(createdObject.id).Tech;
 
-        Assert.That(receivedItem.data.CapacityGB, Is.EqualTo(capacity), "Object fields don't match");
-        Assert.That(deleteAnItem.DeletionMessage.Contains(createdItem.id), "the object is not deleted");
+        Assert.That(returnedObject.data.CapacityGB, Is.EqualTo(capacity), "Object fields don't match");
+        Assert.That(deletedObject.DeletionMessage.Contains(createdObject.id), "the object is not deleted");
     }
 
     [Test]
-    public void DeleteCreatedTechItemTest()
+    public void CheckThatObjectCanBeDeleted()
     {
 
-        var techItem = new TechItemRequestModel()
+        var objectCreateRequest = new TechItemRequestModel
         {
             name = "Apple iPhone 14 Pro",
             data = new TechData
@@ -69,27 +68,27 @@ public class TechTests
             }
         };
 
-        var createdItem = new TechController(new CustomRestClient())
-            .AddTechItem<TechItemCreatedAtResponseModel>(techItem).Tech;
+        var createdObject = new TechController(new CustomRestClient())
+            .AddObject<TechItemCreatedAtResponseModel>(objectCreateRequest).Tech;
 
-        var receivedItem = new TechController(new CustomRestClient())
-            .GetSingleTechItem<TechItemSingleResponseModel>(createdItem.id).Tech;
+        var returnedObject = new TechController(new CustomRestClient())
+            .GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
 
-        var deleteAnItem = new TechController(new CustomRestClient())
-            .DeleteCreatedItem<TechItemDeletedResponseModel>(createdItem.id).Tech;
+        var deleteObject = new TechController(new CustomRestClient())
+            .DeleteObject<TechItemDeletedResponseModel>(createdObject.id).Tech;
 
-        var deletedItem = new TechController(new CustomRestClient())
-            .GetSingleTechItem<TechItemSingleResponseModel>(createdItem.id).Tech;
+        var deletedObject = new TechController(new CustomRestClient())
+            .GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
 
-        Assert.That(deletedItem.id, Is.Null, "Item is not deleted");
+        Assert.That(deletedObject.id, Is.Null, "Item is not deleted");
     }
     
     [Test]
-    public void PathCreatedTechItemTest()
+    public void CheckThatObjectCanBePatched()
     {
         var newPrice = 2000;
 
-        var techItem = new TechItemRequestModel()
+        var objectCreateRequest = new TechItemRequestModel
         {
             name = "iPhone 14",
             data = new TechData
@@ -107,15 +106,60 @@ public class TechTests
             }
         };
 
-        var createdItem = new TechController(new CustomRestClient()).AddTechItem<TechItemCreatedAtResponseModel>(techItem).Tech;
+        var createdObject = new TechController(new CustomRestClient()).AddObject<TechItemCreatedAtResponseModel>(objectCreateRequest).Tech;
 
-        var receivedItem = new TechController(new CustomRestClient()).GetSingleTechItem<TechItemSingleResponseModel>(createdItem.id).Tech;
+        var returnedObject = new TechController(new CustomRestClient()).GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
 
-        var patchedItem = new TechController(new CustomRestClient()).PatchTechItem<TechItemPatchUpdateResponseModel>(patch, createdItem.id).Tech;
+        var patchedObject = new TechController(new CustomRestClient()).PatchObject<TechItemPatchUpdateResponseModel>(patch, createdObject.id).Tech;
 
-        var deleteAnItem = new TechController(new CustomRestClient()).DeleteCreatedItem<TechItemDeletedResponseModel>(createdItem.id).Tech;
+        var deletedObject = new TechController(new CustomRestClient()).DeleteObject<TechItemDeletedResponseModel>(createdObject.id).Tech;
 
-        Assert.That(patchedItem.Data.Price, Is.EqualTo(newPrice), "Updated value should match");
-        Assert.That(deleteAnItem.DeletionMessage.Contains(createdItem.id), "the object is not deleted");
+        Assert.That(patchedObject.Data.Price, Is.EqualTo(newPrice), "Updated value should match");
+        Assert.That(deletedObject.DeletionMessage.Contains(createdObject.id), "the object is not deleted");
+    }
+    
+    [Test]
+    public void CheckThatObjectCanBePut()
+    {
+        var price = 2000;
+
+        var objectCreateRequest = new TechItemRequestModel
+        {
+            name = "Apple MacBook Pro 16",
+            data = new TechData
+            {
+                Year = 2019,
+                Price = 2049,
+                CapacityGB = 1024,
+                Harddisksize = "1 TB",
+                Color = "silver"
+            }
+        };
+
+        var put = new TechItemRequestModel
+        {
+            name = "Apple MacBook Pro 16",
+            data = new TechData
+            {
+                Year = 2019,
+                Price = 2000,
+                CapacityGB = 1024,
+                Harddisksize = "1 TB",
+                Color = "silver"
+            }
+        };
+
+        var createdObject = new TechController(new CustomRestClient()).AddObject<TechItemCreatedAtResponseModel>(objectCreateRequest).Tech;
+
+        var returnedObject = new TechController(new CustomRestClient()).GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
+
+        var putObject = new TechController(new CustomRestClient()).PutObject<TechItemPutUpdateResponseModel>(put, createdObject.id).Tech;
+
+        var deleteObject = new TechController(new CustomRestClient()).DeleteObject<TechItemDeletedResponseModel>(createdObject.id).Tech;
+
+        var deletedObject = new TechController(new CustomRestClient()).GetObject<TechItemSingleResponseModel>(createdObject.id).Tech;
+
+        Assert.That(putObject.Data.Price, Is.EqualTo(price), "the object is not deleted");
+        Assert.That(deletedObject.id, Is.Null, "the object is not deleted");
     }
 }

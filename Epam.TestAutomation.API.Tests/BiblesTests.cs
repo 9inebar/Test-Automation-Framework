@@ -20,7 +20,7 @@ public class BiblesTests
     public void CheckAllBiblesResponseWithoutAuthorisation()
     {
         var response = new BiblesController(new CustomRestClient(), string.Empty).GetBibles<AllBiblesModel>();
-        Assert.That(response.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "invalid status code was returned when sending GET request to /v1/bibles without authorisation");
+        Assert.That(response.response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized), "invalid status code was returned when sending GET request to /v1/bibles without authorisation");
     }
     
     [Test]

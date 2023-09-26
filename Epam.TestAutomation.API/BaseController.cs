@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -54,6 +53,18 @@ public class BaseController
         request.AddJsonBody(payload);
 
         var response = _restClient.Patch(request);
+
+        return typeof(T) == typeof(RestResponse)
+            ? (response, default)
+            : (response, GetDeserializedView<T>(response));
+    }
+    
+    protected (RestResponse response, T?) Put<T, TPayload>(string resource, TPayload payload) where TPayload : class
+    {
+        var request = new RestRequest(resource, Method.Put);
+        request.AddJsonBody(payload);
+
+        var response = _restClient.Put(request);
 
         return typeof(T) == typeof(RestResponse)
             ? (response, default)

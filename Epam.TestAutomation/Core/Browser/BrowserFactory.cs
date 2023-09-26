@@ -19,10 +19,4 @@ public class BrowserFactory
             return browser.Value;
         }
     }
-
-    public static void CloseBrowser()
-    {
-        browser.Value.Quit();
-        browser.Value = null;
-    }
 }

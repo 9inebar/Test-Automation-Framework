@@ -6,6 +6,8 @@ public enum BrowserType
 {
     [Description("Chrome")]
     Chrome,
+    [Description("Safari")]
+    Safari,
     [Description("Undefined")]
     Undefined
 }

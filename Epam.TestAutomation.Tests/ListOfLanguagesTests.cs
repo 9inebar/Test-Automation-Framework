@@ -1,5 +1,4 @@
 using Epam.TestAutomation.Core.Browser;
-using Epam.TestAutomation.Core.Elements;
 using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
