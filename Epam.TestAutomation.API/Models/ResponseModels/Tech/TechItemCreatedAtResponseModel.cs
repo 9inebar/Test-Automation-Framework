@@ -1,11 +1,9 @@
-using Epam.TestAutomation.API.Models.SharedModels;
+using Newtonsoft.Json;
 
-namespace Epam.TestAutomation.API.Models.ResponseModels;
+namespace Epam.TestAutomation.API.Models.ResponseModels.Tech;
 
-public class TechItemSingleResponseModel
+public class TechItemCreatedAtResponseModel : TechItemSingleResponseModel
 {
-    public string id { get; set; }
-    public string name { get; set; }
-    public TechData data { get; set; }
+    [JsonProperty("createdAt")]
     public string createdAt { get; set; }
 }

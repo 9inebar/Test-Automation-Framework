@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef48b2e7_002Dfb2a_002D40ac_002D9361_002D37e624899c78/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CheckAllObjectsResponseReturnsObject" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.TechTests.CheckAllObjectsResponseReturnsObject&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.TechTests.CheckAllObjectsResponseWithValidParams&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.BiblesTests&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.TechTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
