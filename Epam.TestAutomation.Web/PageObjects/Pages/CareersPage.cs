@@ -8,19 +8,19 @@ public class CareersPage : BasePage
 {
     public override string Url => "https://www.epam.com/";
     
-    public By careersButton = By.XPath("//a[@ href='/careers']//parent::span");
-    public By findYourDreamJobButton = By.XPath("(//*[name()='use'])[10]");
+    public IWebElement careersButton = BrowserFactory.Browser.FindElement(By.XPath("//a[@ href='/careers']//parent::span"));
+    public IWebElement findYourDreamJobButton = BrowserFactory.Browser.FindElement(By.XPath("(//*[name()='use'])[10]"));
     public bool isAmericasDisplayed = BrowserFactory.Browser.FindElement(By.XPath("//a[@data-item='0']")).Displayed;
     public bool isEMEADisplayed = BrowserFactory.Browser.FindElement(By.XPath("//a[@data-item='1']")).Displayed;
     public bool isAPACDisplayed = BrowserFactory.Browser.FindElement(By.XPath("//a[@data-item='2']")).Displayed;
     
     public string jobListingsUrl = "https://www.epam.com/careers/job-listings";
-    public By jobListingsButton = By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]");
+    public IWebElement jobListingsButton = BrowserFactory.Browser.FindElement(By.XPath("//a[@href='/careers/job-listings']//parent::li[contains(@class, 'top')]"));
     
     //DDT test data
     public By keyWord = By.XPath("//input[@id='new_form_job_search-keyword']");
     public string DDTKeyWord = "QA Automation Team Lead";
     public By joinOurTeamFindButton = By.XPath("//button[contains(text(),'Find')]");
-    public By jobListingsSearchResults = By.XPath("//ul[@class='search-result__list']");
+    public IWebElement jobListingsSearchResults = BrowserFactory.Browser.FindElement(By.XPath("//ul[@class='search-result__list']"));
     public By jobListingsSearchResultCell = By.XPath("//li[@class='search-result__item']");
 }

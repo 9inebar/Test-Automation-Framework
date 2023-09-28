@@ -1,6 +1,7 @@
 ﻿using Epam.TestAutomation.Core.Browser;
 using Epam.TestAutomation.Core.Helper;
 using Epam.TestAutomation.Core.Utils;
+using Epam.TestAutomation.Web.PageObjects.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium.Interactions;
 using Logger = Epam.TestAutomation.Core.Utils.Logger;
@@ -10,7 +11,7 @@ namespace Epam.TestAutomation.Tests;
 public abstract class BaseTest
 {
     public TestContext TestContext { get; set; }
-    public Actions action { get; set; }
+    protected MainPage MainPage = new ();
 
     [OneTimeSetUp]
     public void OneTimeSetUp()
@@ -25,7 +26,7 @@ public abstract class BaseTest
         BrowserFactory.Browser.Maximize();
         BrowserFactory.Browser.GoToUrl(TestSettings.ApplicationUrl);
         Waiters.WaitForPageLoad();
-        action = new Actions(BrowserFactory.Browser.Driver);
+        MainPage.AcceptAllCookies();
     }
 
     [TearDown]
@@ -38,6 +39,6 @@ public abstract class BaseTest
                 Path.Combine(TestContext.CurrentContext.TestDirectory, TestSettings.ScreenShotPath));
         }
         Logger.Info("Test has finished");
-        BrowserFactory.Browser.Quit();
+        BrowserFactory.Browser.Close();
     }
 }

@@ -7,49 +7,49 @@ namespace Epam.TestAutomation.Tests;
 
 public class CareersPageTests : BaseTest
 {
-    private CareersPage careersPage;
+    private CareersPage _careersPage;
 
     [SetUp]
     public void SetUp()
     {
-        careersPage = new CareersPage();
-        careersPage.AcceptAllCookies();
+        _careersPage = new CareersPage();
+        _careersPage.AcceptAllCookies();
     }
 
     [Test]
-    public void CheckThatListOfCountriesContainsAmerEMEAandAPAC()
+    public void CheckThatListOfCountriesContainsAmerEmeAandApac()
     {
-        BrowserFactory.Browser.ClickElement(careersPage.careersButton);
-        BrowserFactory.Browser.ClickElement(careersPage.findYourDreamJobButton);
+        _careersPage.careersButton.Click();
+        _careersPage.findYourDreamJobButton.Click();
         
-        Assert.True(careersPage.isAmericasDisplayed, "Americas element not displayed");
-        Assert.True(careersPage.isEMEADisplayed, "EMEA element not displayed");
-        Assert.True(careersPage.isAPACDisplayed, "APAC not displayed");
+        Assert.True(_careersPage.isAmericasDisplayed, "Americas element not displayed");
+        Assert.True(_careersPage.isEMEADisplayed, "EMEA element not displayed");
+        Assert.True(_careersPage.isAPACDisplayed, "APAC not displayed");
     }
     
     [Test]
     public void HoverOverCareerMenuTest()
     {
-        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
-        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.jobListingsButton)).Click().Build().Perform();
-        Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");
+        BrowserFactory.Browser.Action.MoveToElement(_careersPage.careersButton).Build().Perform();
+        BrowserFactory.Browser.Action.MoveToElement(_careersPage.jobListingsButton).Click().Build().Perform();
+        Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(_careersPage.jobListingsUrl), "the opened page has wrong url");
     }
 
     [Test]
-    public void DDTKeyWordPhrases()
+    public void DdtKeyWordPhrases()
     {
-        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
-        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.jobListingsButton)).Click().Build().Perform();
-        BrowserFactory.Browser.ClickElement(careersPage.keyWord);
-        BrowserFactory.Browser.EnterText(careersPage.keyWord, careersPage.DDTKeyWord);
-        BrowserFactory.Browser.ClickElement(careersPage.joinOurTeamFindButton);
-        action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.jobListingsSearchResults)).Build().Perform();
+        BrowserFactory.Browser.Action.MoveToElement(_careersPage.careersButton).Build().Perform();
+        BrowserFactory.Browser.Action.MoveToElement(_careersPage.jobListingsButton).Click().Build().Perform();
+        BrowserFactory.Browser.ClickElement(_careersPage.keyWord);
+        BrowserFactory.Browser.EnterText(_careersPage.keyWord, _careersPage.DDTKeyWord);
+        BrowserFactory.Browser.ClickElement(_careersPage.joinOurTeamFindButton);
+        BrowserFactory.Browser.Action.MoveToElement(_careersPage.jobListingsSearchResults).Build().Perform();
         Thread.Sleep(3000);
         List<IWebElement> listOfSearchResults =
-            BrowserFactory.Browser.FindElements(careersPage.jobListingsSearchResultCell).ToList();
-        var expectedResult = careersPage.DDTKeyWord.ToLower();
+            BrowserFactory.Browser.FindElements(_careersPage.jobListingsSearchResultCell).ToList();
+        var expectedResult = _careersPage.DDTKeyWord.ToLower();
         IEnumerable<string> resultsToLower = listOfSearchResults.Select(result => result.Text.ToLower());
-        var Output = string.Join(",", resultsToLower);
-        Assert.That(resultsToLower.All(result => result.Contains(expectedResult)),Is.True, $"The search results are NOT related to your keyword phrase : {Output}");
+        var output = string.Join(",", resultsToLower);
+        Assert.That(resultsToLower.All(result => result.Contains(expectedResult)),Is.True, $"The search results are NOT related to your keyword phrase : {output}");
     }
 }
