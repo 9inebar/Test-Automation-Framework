@@ -7,7 +7,6 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>BDD</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,13 +15,8 @@
         <PackageReference Include="NUnit3TestAdapter" Version="4.4.2"/>
         <PackageReference Include="NUnit.Analyzers" Version="3.6.1"/>
         <PackageReference Include="coverlet.collector" Version="3.2.0"/>
-        <PackageReference Include="SpecFlow" Version="3.9.74" />
-        <PackageReference Include="SpecFlow.NUnit" Version="3.9.74" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Epam.TestAutomation.Web\Epam.TestAutomation.Web.csproj" />
-    </ItemGroup>
 
 
 </Project>
