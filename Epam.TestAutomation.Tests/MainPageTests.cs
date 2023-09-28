@@ -1,5 +1,7 @@
 using Epam.TestAutomation.Core.Browser;
+using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
+using Epam.TestAutomation.Web.PageObjects.Panels;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
@@ -10,6 +12,8 @@ public class MainPageTests : BaseTest
     private MainPage mainPage;
     private HowWeDoItPage howUrl;
     private ClientWorkPage clientUrl;
+    private AboutPage _aboutPage;
+    private HeaderBlock _headerBlock;
 
     [SetUp]
     public void SetUp()
@@ -17,6 +21,9 @@ public class MainPageTests : BaseTest
         mainPage = new MainPage();
         howUrl = new HowWeDoItPage();
         clientUrl = new ClientWorkPage();
+        _headerBlock = new HeaderBlock(By.XPath("//div[@class='header__inner']"));
+        _aboutPage = new AboutPage();
+        mainPage.AcceptAllCookies();
     }
 
     [Test]
@@ -49,5 +56,17 @@ public class MainPageTests : BaseTest
     public void FindContactUsButton()
     {
         BrowserFactory.Browser.FindElement(mainPage.contactUsButton);
+    }
+    
+    [Test]
+    public void VerifyThatDobkinAndPetersonAreDisplayed()
+    {
+        Waiters.WaitForPageLoad();
+        BrowserFactory.Browser.Action.MoveToElement(_headerBlock.aboutButton).Build().Perform();
+        BrowserFactory.Browser.Action.MoveToElement(_headerBlock.Leadership).Click().Build().Perform();
+        BrowserFactory.Browser.ScrollToElements(_aboutPage.Dobkin);
+        Assert.That(_aboutPage.Dobkin.Displayed);
+        BrowserFactory.Browser.ScrollToElements(_aboutPage.Peterson);
+        Assert.That(_aboutPage.Peterson.Displayed);
     }
 }

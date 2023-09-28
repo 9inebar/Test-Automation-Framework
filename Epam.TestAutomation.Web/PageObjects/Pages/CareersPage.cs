@@ -1,6 +1,5 @@
 using Epam.TestAutomation.Core.BasePage;
 using Epam.TestAutomation.Core.Browser;
-using Epam.TestAutomation.Core.Elements;
 using OpenQA.Selenium;
 
 namespace Epam.TestAutomation.Web.PageObjects.Pages;
