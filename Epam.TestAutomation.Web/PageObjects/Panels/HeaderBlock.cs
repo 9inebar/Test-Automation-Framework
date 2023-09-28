@@ -9,5 +9,7 @@ public class HeaderBlock : BasePanel
 
     public SearchBlock SearchBlock => new SearchBlock(By.XPath("//*[contains(@class, 'header-search__panel')]"));
 
+    public Button aboutButton = new Button(By.XPath("//a[@ href='/about']//parent::span")); 
+
     public HeaderBlock(By locator) : base(locator) { }
 }

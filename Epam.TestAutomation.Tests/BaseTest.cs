@@ -38,6 +38,6 @@ public abstract class BaseTest
                 Path.Combine(TestContext.CurrentContext.TestDirectory, TestSettings.ScreenShotPath));
         }
         Logger.Info("Test has finished");
-        BrowserFactory.Browser.Close();
+        BrowserFactory.Browser.Quit();
     }
 }

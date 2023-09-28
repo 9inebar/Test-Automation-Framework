@@ -15,7 +15,7 @@ public class MainPage : BasePage
 
     public ListOfLanguagesBlock LangBlock => new (By.XPath("//button[@class='location-selector__button']"));
     
-    public IWebElement SearchForm = BrowserFactory.Browser.FindElement(By.XPath("//input[@id='new_form_search']"));
+    public IWebElement SearchForm => BrowserFactory.Browser.FindElement(By.XPath("//input[@id='new_form_search']"));
     public By SearchButton = By.XPath("//*[@class='header-search__button header__icon']");
     public IWebElement FindButton = BrowserFactory.Browser.FindElement(By.XPath("//span[@class='bth-text-layer']"));
     public readonly IWebElement FrequentSearchesFirstItem = BrowserFactory.Browser.FindElement(By.XPath("//li[@class='frequent-searches__item'][1]"));

@@ -7,11 +7,13 @@ namespace Epam.TestAutomation.Tests;
 [TestFixture] [Parallelizable(ParallelScope.All)]
 public class CareersPageTests : BaseTest
 {
+    private MainPage MainPage;
     private CareersPage _careersPage;
 
     [SetUp]
     public void SetUp()
     {
+        MainPage = new MainPage();
         _careersPage = new CareersPage();
     }
 
