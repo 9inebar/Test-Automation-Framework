@@ -24,5 +24,7 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.MainPageTests.VerifyThatDobkinAndPetersonAreDisplayed&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.LeadershipPageTests.VerifyThatDobkinAndPetersonAreDisplayed&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::F9474AE4-0D1C-42DC-9647-E3AEEBF8142C::net7.0::Epam.TestAutomation.Tests.BDD.Features.DobkinPetersonTestFeature.EpamSite_Header_CheckEpamLeadershipPageContainsDobkin&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::F9474AE4-0D1C-42DC-9647-E3AEEBF8142C::net7.0::Epam.TestAutomation.Tests.BDD.Features.DobkinPetersonTestFeature.EpamSite_Header_CheckEpamLeadershipPageContainsPeterson&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

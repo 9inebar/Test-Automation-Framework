@@ -9,6 +9,7 @@ namespace Epam.TestAutomation.Tests.BDD.Steps.GeneralSteps;
 [Binding]
 public class TearDownSteps
 {
+    [AfterScenario]
     public static void TearDown()
     {
         if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
