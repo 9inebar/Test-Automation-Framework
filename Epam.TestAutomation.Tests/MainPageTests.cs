@@ -1,5 +1,4 @@
 using Epam.TestAutomation.Core.Browser;
-using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
 using Epam.TestAutomation.Web.PageObjects.Panels;
 using NUnit.Framework;
@@ -12,7 +11,7 @@ public class MainPageTests : BaseTest
     private MainPage mainPage;
     private HowWeDoItPage howUrl;
     private ClientWorkPage clientUrl;
-    private AboutPage _aboutPage;
+    private LeadershipPage _leadershipPage;
     private HeaderBlock _headerBlock;
 
     [SetUp]
@@ -22,7 +21,7 @@ public class MainPageTests : BaseTest
         howUrl = new HowWeDoItPage();
         clientUrl = new ClientWorkPage();
         _headerBlock = new HeaderBlock(By.XPath("//div[@class='header__inner']"));
-        _aboutPage = new AboutPage();
+        _leadershipPage = new LeadershipPage();
         mainPage.AcceptAllCookies();
     }
 
@@ -63,9 +62,9 @@ public class MainPageTests : BaseTest
     {
         _headerBlock.aboutButton.Click();
         _headerBlock.Leadership.Click();
-        BrowserFactory.Browser.ScrollToElements(_aboutPage.Dobkin.OriginalWebElement);
-        Assert.That(_aboutPage.Dobkin.IsDisplayed);
-        BrowserFactory.Browser.ScrollToElements(_aboutPage.Peterson.OriginalWebElement);
-        Assert.That(_aboutPage.Peterson.IsDisplayed);
+        BrowserFactory.Browser.ScrollToElements(_leadershipPage.Dobkin.OriginalWebElement);
+        Assert.That(_leadershipPage.Dobkin.IsDisplayed, "Dobkin is missing");
+        BrowserFactory.Browser.ScrollToElements(_leadershipPage.Peterson.OriginalWebElement);
+        Assert.That(_leadershipPage.Peterson.IsDisplayed, "Peterson is missing");
     }
 }

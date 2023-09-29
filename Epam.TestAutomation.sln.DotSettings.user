@@ -7,7 +7,7 @@
     &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.CareersPageTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc3013e3_002D33e2_002D461e_002D8248_002D7dc6c11cceb4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CheckThatListOfCountriesContainsAmerEmeAandApac" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc3013e3_002D33e2_002D461e_002D8248_002D7dc6c11cceb4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CheckThatListOfCountriesContainsAmerEmeAandApac" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.CareersPageTests.CheckThatListOfCountriesContainsAmerEmeAandApac&lt;/TestId&gt;
     &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.SearchPageTests.CheckThatUrlToSearchContainsMyText&lt;/TestId&gt;
@@ -22,9 +22,7 @@
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ef48b2e7_002Dfb2a_002D40ac_002D9361_002D37e624899c78/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CheckAllObjectsResponseReturnsObject" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.TechTests.CheckAllObjectsResponseReturnsObject&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.TechTests.CheckAllObjectsResponseWithValidParams&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.BiblesTests&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::DD6B6DC9-017E-4EF6-93D5-10E1B3D63E3B::net7.0::Epam.TestAutomation.API.Tests.TechTests&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.MainPageTests.VerifyThatDobkinAndPetersonAreDisplayed&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.LeadershipPageTests.VerifyThatDobkinAndPetersonAreDisplayed&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
