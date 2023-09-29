@@ -1,5 +1,7 @@
 using Epam.TestAutomation.Core.Browser;
+using Epam.TestAutomation.Core.Utils;
 using Epam.TestAutomation.Web.PageObjects.Pages;
+using Epam.TestAutomation.Web.PageObjects.Panels;
 using NUnit.Framework;
 
 namespace Epam.TestAutomation.Tests;
@@ -9,6 +11,8 @@ public class MainPageTests : BaseTest
     private MainPage mainPage;
     private HowWeDoItPage howUrl;
     private ClientWorkPage clientUrl;
+    private AboutPage _aboutPage;
+    private HeaderBlock _headerBlock;
 
     [SetUp]
     public void SetUp()
@@ -16,6 +20,7 @@ public class MainPageTests : BaseTest
         mainPage = new MainPage();
         howUrl = new HowWeDoItPage();
         clientUrl = new ClientWorkPage();
+        _aboutPage = new AboutPage();
         mainPage.AcceptAllCookies();
     }
 
@@ -49,5 +54,17 @@ public class MainPageTests : BaseTest
     public void FindContactUsButton()
     {
         BrowserFactory.Browser.FindElement(mainPage.contactUsButton);
+    }
+    
+    [Test]
+    public void VerifyThatDobkinAndPetersonAreDisplayed()
+    {
+        Waiters.WaitForPageLoad();
+        _headerBlock.aboutButton.Click();
+        _headerBlock.Leadership.Click();
+        BrowserFactory.Browser.ScrollToElements(_aboutPage.Dobkin.OriginalWebElement);
+        Assert.That(_aboutPage.Dobkin.IsDisplayed);
+        BrowserFactory.Browser.ScrollToElements(_aboutPage.Peterson.OriginalWebElement);
+        Assert.That(_aboutPage.Peterson.IsDisplayed);
     }
 }
