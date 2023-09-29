@@ -5,9 +5,11 @@ namespace Epam.TestAutomation.Web.PageObjects.Panels;
 
 public class HeaderBlock : BasePanel
 {
-    public Button SearchButton => new Button(By.XPath("//*[contains(@class, 'header-search__button')]"));
+    public HtmlElement AboutButton => new HtmlElement(By.XPath("//a[@ href='/about']//parent::span")); 
+    public HtmlElement Leadership => new HtmlElement(By.XPath("//a[@href='https://www.epam.com/about/who-we-are/leadership' and descendant::span[contains(text(), 'Leadership')]]"));
 
-    public SearchBlock SearchBlock => new SearchBlock(By.XPath("//*[contains(@class, 'header-search__panel')]"));
-
-    public HeaderBlock(By locator) : base(locator) { }
+    public HeaderBlock(By locator) : base(locator)
+    {
+        
+    }
 }
