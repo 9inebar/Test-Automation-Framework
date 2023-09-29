@@ -1,4 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=09b1d89e_002D3036_002D459f_002Da026_002D7fa72b16c6d4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DDTKeyWordPhrases" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.CareersPageTests.DDTKeyWordPhrases&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.MainPageTests&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.CareersPageTests.CheckThatListOfCountriesContainsAmerEMEAandAPAC&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.CareersPageTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc3013e3_002D33e2_002D461e_002D8248_002D7dc6c11cceb4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CheckThatListOfCountriesContainsAmerEmeAandApac" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::6CA2AF9A-0FF1-4DBF-BF8E-90DDF0895A1C::net7.0::Epam.TestAutomation.Tests.CareersPageTests.CheckThatListOfCountriesContainsAmerEmeAandApac&lt;/TestId&gt;

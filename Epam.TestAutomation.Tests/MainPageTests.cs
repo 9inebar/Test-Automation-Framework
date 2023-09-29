@@ -61,12 +61,11 @@ public class MainPageTests : BaseTest
     [Test]
     public void VerifyThatDobkinAndPetersonAreDisplayed()
     {
-        Waiters.WaitForPageLoad();
-        BrowserFactory.Browser.Action.MoveToElement(_headerBlock.aboutButton).Build().Perform();
-        BrowserFactory.Browser.Action.MoveToElement(_headerBlock.Leadership).Click().Build().Perform();
-        BrowserFactory.Browser.ScrollToElements(_aboutPage.Dobkin);
-        Assert.That(_aboutPage.Dobkin.Displayed);
-        BrowserFactory.Browser.ScrollToElements(_aboutPage.Peterson);
-        Assert.That(_aboutPage.Peterson.Displayed);
+        _headerBlock.aboutButton.Click();
+        _headerBlock.Leadership.Click();
+        BrowserFactory.Browser.ScrollToElements(_aboutPage.Dobkin.OriginalWebElement);
+        Assert.That(_aboutPage.Dobkin.IsDisplayed);
+        BrowserFactory.Browser.ScrollToElements(_aboutPage.Peterson.OriginalWebElement);
+        Assert.That(_aboutPage.Peterson.IsDisplayed);
     }
 }
