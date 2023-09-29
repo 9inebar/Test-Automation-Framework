@@ -25,4 +25,13 @@
       <ProjectReference Include="..\Epam.TestAutomation\Epam.TestAutomation.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Features\LeadershipNavigation.feature.cs">
+        <DependentUpon>LeadershipNavigation2.feature</DependentUpon>
+        <AutoGen>true</AutoGen>
+        <DesignTime>true</DesignTime>
+        <Visible>true</Visible>
+      </Compile>
+    </ItemGroup>
+
 </Project>
