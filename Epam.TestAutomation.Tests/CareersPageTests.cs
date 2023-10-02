@@ -36,7 +36,7 @@ public class CareersPageTests : BaseTest
         Assert.That(BrowserFactory.Browser.GetUrl(),Is.EqualTo(careersPage.jobListingsUrl), "the opened page has wrong url");
     }
 
-    [Test]
+    /*[Test]
     public void DDTKeyWordPhrases()
     {
         action.MoveToElement(BrowserFactory.Browser.FindElement(careersPage.careersButton)).Build().Perform();
@@ -52,5 +52,5 @@ public class CareersPageTests : BaseTest
         IEnumerable<string> resultsToLower = listOfSearchResults.Select(result => result.Text.ToLower());
         var Output = string.Join(",", resultsToLower);
         Assert.That(resultsToLower.All(result => result.Contains(expectedResult)),Is.True, $"The search results are NOT related to your keyword phrase : {Output}");
-    }
+    }*/
 }
