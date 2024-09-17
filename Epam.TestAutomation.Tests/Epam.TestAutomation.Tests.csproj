@@ -9,6 +9,7 @@
 
 
     <ItemGroup>
+      <ProjectReference Include="..\Epam.TestAutomation.Tests.DDT\Epam.TestAutomation.Tests.DDT.csproj" />
       <ProjectReference Include="..\Epam.TestAutomation.Web\Epam.TestAutomation.Web.csproj" />
       <ProjectReference Include="..\Epam.TestAutomation\Epam.TestAutomation.csproj" />
     </ItemGroup>
@@ -16,7 +17,7 @@
 
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
       <PackageReference Include="NUnit" Version="3.13.3" />
     </ItemGroup>
 

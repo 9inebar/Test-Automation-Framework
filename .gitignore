@@ -201,13 +201,8 @@ project.lock.json
 *.vc.db
 
 # Rider
-.info
-.git/
 .idea/
-obj/
-bin/
-.DS_Store/
-.Epam.TestAutomation.sln.DotSettings.user
+Epam.TestAutomation/obj/
 
 # Visual Studio Code
 .vscode/

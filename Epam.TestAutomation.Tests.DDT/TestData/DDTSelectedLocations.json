@@ -1,0 +1,11 @@
+[{
+  "SearchCountry": "Belgium",
+  "SearchCity": "Brussels",
+  "SearchResult": "Brussels, Belgium"
+},
+  {
+    "SearchCountry": "Denmark",
+    "SearchCity": "Copenhagen",
+    "SearchResult": "Copenhagen, Denmark"
+  }
+]
